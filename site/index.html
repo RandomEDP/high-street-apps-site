@@ -162,6 +162,10 @@ section { padding-block: 100px; }
 .receipt .fit { margin-top: 16px; font-size: 12.5px; color: var(--muted); }
 .receipt.pick { outline: 2px solid var(--ink); outline-offset: -2px; }
 .receipt .pickline { text-align: center; font-size: 12px; margin-bottom: 14px; }
+.web-head { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; margin-top: 96px; margin-bottom: 36px; align-items: end; }
+.web-head h3 { font-weight: 800; font-size: clamp(30px, 4.2vw, 52px); line-height: 1; letter-spacing: -.03em; }
+.web-head p { margin: 12px 0 0; color: var(--muted); max-width: 38em; }
+@media (max-width: 760px) { .web-head { grid-template-columns: 1fr; gap: 10px; margin-top: 72px; } }
 .terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 26px; }
 .terms b { display: block; font: 800 26px/1.1 var(--display); letter-spacing: -.01em; margin-bottom: 8px; }
 .terms p { color: var(--muted); font-size: 16px; }
@@ -351,8 +355,61 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </article>
       </div>
 
+      <div class="web-head" id="websites">
+        <div class="label">Add a website</div>
+        <div>
+          <h3>Is your website <span class="hl">showing its age?</span></h3>
+          <p>I can rebuild it alongside your app. One system runs both, so your opening hours, prices and bookings stay the same everywhere.</p>
+        </div>
+      </div>
+
+      <div class="receipts">
+        <article class="receipt">
+          <div class="rh"><small>Quote · Website</small><h3>Refresh</h3><small>A new design built on your existing content</small></div>
+          <ul>
+            <li>A fresh, modern design for your business</li>
+            <li>Your current pages and content, rewritten where it helps</li>
+            <li>Fast, secure and works on every phone</li>
+            <li>Ready in 1 to 2 weeks</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Website</span><span class="dots"></span><span>fixed quote</span></div>
+            <div class="big"><small>from</small>£1,200</div>
+          </div>
+          <p class="fit">Good for sites that work but look dated.</p>
+        </article>
+        <article class="receipt">
+          <div class="rh"><small>Quote · Website</small><h3>Rebuild</h3><small>A new site that does more for you</small></div>
+          <ul>
+            <li class="inc">Everything in Refresh</li>
+            <li>Online bookings, a shop or memberships</li>
+            <li>Connected to the same system as your app</li>
+            <li>Easy for you to update yourself</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Website</span><span class="dots"></span><span>fixed quote</span></div>
+            <div class="big"><small>from</small>£2,500</div>
+          </div>
+          <p class="fit">Good for businesses that take bookings or sell online.</p>
+        </article>
+        <article class="receipt pick">
+          <span class="stamp">−15%</span>
+          <div class="rh"><small>Quote · Bundle</small><h3>App + Website</h3><small>Any app tier with either website, 15% off the total</small></div>
+          <ul>
+            <li><span style="display:flex;justify-content:space-between;gap:8px"><span>Starter app</span><span>£2,250</span></span></li>
+            <li><span style="display:flex;justify-content:space-between;gap:8px"><span>Website refresh</span><span>£1,200</span></span></li>
+            <li class="inc">One system powering both</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Was</span><span class="dots"></span><s>£3,450</s></div>
+            <div class="big"><small>from</small>£2,900</div>
+          </div>
+          <p class="fit">Works with any tier, e.g. Standard + Rebuild from £5,400 (was £6,400).</p>
+        </article>
+      </div>
+
       <div class="terms">
-        <div><b>From £100 a month</b><p>Upkeep covers hosting, security and bug fixes, updates for each new iOS release, App Store management and small changes.</p></div>
+        <div><b>From £100 a month</b><p>Upkeep covers hosting, security and bug fixes, updates for each new iOS release, App Store management and small changes. Add £50 a month to look after your website too.</p></div>
         <div><b>50% now, 50% at launch</b><p>You pay the second half when your app is live. "From" prices are a starting point, and your quote is fixed before work starts.</p></div>
         <div><b>Your name on the App Store</b><p>Apple charges a separate £79 a year developer fee, so the app is listed under your own business.</p></div>
       </div>

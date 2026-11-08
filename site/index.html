@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>High Street Apps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="High Street Apps: iPhone apps for UK businesses, built around the website you already have. A free concept first, a fixed quote, and half the payment at launch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: left-aligned editorial column, giant type; one full-bleed "pitch" band for Gaffer; process told as a lock screen; prices as printed quote receipts. */
+:root {
+  --paper: #eceee8; --surface: #f7f8f4; --ink: #121614; --muted: #59615c; --line: #cfd4cc;
+  --pitch: #1f6b4a; --pitch-deep: #154a33; --chalk: #f2f4ee; --chalk-dim: rgba(242,244,238,.22);
+  --marker: #f5cc3d; --stamp: #d23a5f; --receipt: #fbfbf7; --receipt-ink: #121614;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0f1311; --surface: #161b18; --ink: #e9ece6; --muted: #9ea8a2; --line: #2b332e;
+  --pitch: #1d5e41; --pitch-deep: #123a28; --marker: #e8bf2f; --stamp: #ff6d8f; --receipt: #1b211e; --receipt-ink: #e9ece6; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0f1311; --surface: #161b18; --ink: #e9ece6; --muted: #9ea8a2; --line: #2b332e;
+  --pitch: #1d5e41; --pitch-deep: #123a28; --marker: #e8bf2f; --stamp: #ff6d8f; --receipt: #1b211e; --receipt-ink: #e9ece6; color-scheme: dark }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.55 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.mono { font-family: var(--mono); font-size: 13px; letter-spacing: .02em; }
+.label { font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--paper); font: 600 16px/1 var(--body); padding: 16px 22px; border-radius: 14px; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn .arr { font-family: var(--mono); }
+.link { font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-color: var(--marker); }
+.hl { background: linear-gradient(transparent 58%, var(--marker) 58%, var(--marker) 92%, transparent 92%); padding: 0 .08em; color: inherit; }
+
+/* top bar */
+.top { padding-block: 22px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--pitch); color: var(--chalk); display: grid; place-items: center; font: 800 20px/1 var(--display); }
+.brand b { font: 800 20px/1 var(--display); letter-spacing: -.01em; }
+.brand span { display: block; margin-top: 3px; }
+.top nav { display: flex; gap: 26px; align-items: center; font-weight: 500; }
+.top nav a { text-decoration: none; }
+.top nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 760px) { .top nav .hide-s { display: none; } }
+
+/* hero */
+.hero { padding-block: 40px 90px; }
+.hero h1 { font-weight: 800; font-size: clamp(56px, 12.5vw, 176px); line-height: .86; letter-spacing: -.045em; }
+.hero h1 .thin { font-weight: 300; letter-spacing: -.04em; }
+.hero h1 .app { position: relative; display: inline-block; }
+.hero h1 .app svg { position: absolute; left: -2%; right: -2%; bottom: -.06em; width: 104%; height: .32em; overflow: visible; }
+.hero h1 .app path { fill: none; stroke: var(--marker); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 700; stroke-dashoffset: 0; animation: draw 1.1s .3s ease-out both; }
+@keyframes draw { from { stroke-dashoffset: 700; } }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 56px; align-items: end; margin-top: 48px; }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+.hero .lede { font-size: clamp(19px, 1.7vw, 22px); line-height: 1.45; max-width: 34em; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; margin-top: 30px; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+.facts span { border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; }
+
+/* "your app on a home screen" toy */
+.homescreen { background: linear-gradient(160deg, #2a7a56, #123d2b 70%); border-radius: 30px; padding: 22px 22px 18px; color: #fff; box-shadow: 0 30px 60px -30px rgba(10,30,20,.6); }
+.homescreen .status { display: flex; justify-content: space-between; font: 600 13px/1 var(--body); opacity: .9; }
+.icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px 14px; margin-top: 22px; }
+.ic { display: grid; justify-items: center; gap: 6px; font-size: 11px; color: rgba(255,255,255,.75); min-width: 0; }
+.ic i { width: 100%; max-width: 62px; aspect-ratio: 1; border-radius: 23%; background: rgba(255,255,255,.16); display: block; }
+.ic.me i { background: var(--yourcolor, #f5cc3d); color: #121614; display: grid; place-items: center; font: 800 28px/1 var(--display); font-style: normal; box-shadow: 0 0 0 3px rgba(255,255,255,.9); animation: wiggle 2.8s ease-in-out 1.2s infinite; }
+.ic.me span { color: #fff; font-weight: 600; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@keyframes wiggle { 0%, 86%, 100% { transform: rotate(0); } 89% { transform: rotate(-4deg); } 93% { transform: rotate(4deg); } 96% { transform: rotate(-2deg); } }
+.dock { margin-top: 22px; background: rgba(255,255,255,.14); border-radius: 22px; padding: 12px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.dock i { aspect-ratio: 1; border-radius: 23%; background: rgba(255,255,255,.22); display: block; }
+.try { margin-top: 14px; display: grid; gap: 8px; }
+.try label { display: flex; justify-content: space-between; gap: 10px; }
+.try input { font: 500 16px/1 var(--mono); padding: 14px 16px; border-radius: 12px; border: 1.5px solid var(--ink); background: var(--surface); color: var(--ink); width: 100%; }
+
+/* section header */
+section { padding-block: 100px; }
+.sh { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; margin-bottom: 56px; }
+.sh h2 { font-weight: 800; font-size: clamp(38px, 6vw, 76px); line-height: .95; letter-spacing: -.035em; }
+.sh p { margin-top: 18px; color: var(--muted); max-width: 36em; font-size: 18px; }
+@media (max-width: 760px) { .sh { grid-template-columns: 1fr; gap: 12px; } section { padding-block: 72px; } }
+
+/* Gaffer band */
+.pitch { background: var(--pitch); color: var(--chalk); position: relative; overflow: hidden; padding-bottom: 0; }
+.pitch::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--chalk-dim); }
+.pitch::after { content: ""; position: absolute; left: 50%; top: 330px; width: 420px; height: 420px; margin-left: -210px; border: 2px solid var(--chalk-dim); border-radius: 50%; }
+.pitch .wrap { position: relative; z-index: 1; }
+.pitch .label { color: rgba(242,244,238,.7); }
+.pitch .sh p { color: rgba(242,244,238,.82); }
+.case-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+.case-head h2 { font-size: clamp(72px, 15vw, 210px); line-height: .8; letter-spacing: -.05em; font-weight: 800; }
+.sticker { display: inline-flex; flex-direction: column; gap: 4px; background: var(--marker); color: #121614; padding: 14px 18px; border-radius: 14px; transform: rotate(3deg); text-decoration: none; box-shadow: 0 10px 24px -12px rgba(0,0,0,.5); }
+.sticker b { font: 800 20px/1.05 var(--display); }
+.case-copy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 44px; max-width: 980px; }
+.case-copy p { color: rgba(242,244,238,.85); font-size: 16px; }
+.case-copy b { display: block; font: 600 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--chalk); margin-bottom: 10px; }
+@media (max-width: 760px) { .case-copy { grid-template-columns: 1fr; gap: 18px; } .case-head { grid-template-columns: 1fr; } .sticker { justify-self: start; } }
+.phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 3vw, 44px); margin-top: 72px; align-items: end; }
+.phones figure { margin: 0; display: grid; gap: 14px; }
+.phones figure:nth-child(2) { transform: translateY(-48px); }
+.phones figcaption { font: 600 12px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: rgba(242,244,238,.8); display: flex; gap: 8px; align-items: center; }
+.phones figcaption::before { content: ""; width: 22px; height: 2px; background: var(--marker); flex: none; }
+.phones img { width: 100%; height: auto; filter: drop-shadow(0 -10px 30px rgba(0,0,0,.25)); }
+@media (max-width: 640px) { .phones { grid-template-columns: repeat(3, 70%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0; } .phones figure { scroll-snap-align: start; } .phones figure:nth-child(2) { transform: none; } }
+
+/* lock screen process */
+.process-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 56px; align-items: start; }
+@media (max-width: 900px) { .process-grid { grid-template-columns: 1fr; } }
+.process-grid .sh { grid-template-columns: 1fr; margin-bottom: 0; }
+.process-grid .note { margin-top: 28px; display: grid; gap: 10px; max-width: 30em; color: var(--muted); }
+.lock { background: radial-gradient(120% 80% at 20% 0%, #2c7b58 0%, #10261b 55%, #0b120e 100%); border-radius: 40px; padding: 34px 18px 22px; color: #fff; box-shadow: 0 40px 80px -40px rgba(0,0,0,.7); }
+.lock .date { text-align: center; font: 500 17px/1 var(--body); opacity: .85; }
+.lock .time { text-align: center; font: 300 96px/1 var(--display); letter-spacing: -.04em; margin-top: 6px; }
+.notes { display: grid; gap: 10px; margin-top: 30px; }
+.note-card { background: rgba(255,255,255,.14); backdrop-filter: blur(14px); border-radius: 22px; padding: 14px 16px; display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; animation: slide .6s ease-out both; }
+.note-card:nth-child(2) { animation-delay: .15s; } .note-card:nth-child(3) { animation-delay: .3s; } .note-card:nth-child(4) { animation-delay: .45s; }
+@keyframes slide { from { transform: translateY(14px); } }
+.note-card .ni { width: 38px; height: 38px; border-radius: 10px; background: var(--chalk); color: var(--pitch); display: grid; place-items: center; font: 800 19px/1 var(--display); }
+.note-card .meta { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; opacity: .75; text-transform: uppercase; letter-spacing: .04em; }
+.note-card b { display: block; font-weight: 600; margin-top: 2px; }
+.note-card p { font-size: 15px; line-height: 1.4; opacity: .9; }
+
+/* receipts */
+.sale-line { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; margin-top: 22px; }
+.stamp { display: inline-block; border: 2.5px solid var(--stamp); color: var(--stamp); font: 800 15px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 8px 12px; border-radius: 6px; transform: rotate(-4deg); }
+.receipts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: start; }
+@media (max-width: 960px) { .receipts { grid-template-columns: 1fr; max-width: 460px; } }
+.receipt { position: relative; background: var(--receipt); color: var(--receipt-ink); font-family: var(--mono); font-size: 14px; line-height: 1.5; padding: 28px 24px 40px;
+  --z: 10px; -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--z)) 100%; mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / calc(2 * var(--z)) 100%;
+  filter: drop-shadow(0 1px 0 var(--line)); }
+.receipt:nth-child(1) { transform: rotate(-1.2deg); }
+.receipt:nth-child(2) { transform: translateY(-14px) rotate(.6deg); }
+.receipt:nth-child(3) { transform: rotate(1.4deg); }
+@media (max-width: 960px) { .receipt:nth-child(n) { transform: none; } }
+.receipt .rh { text-align: center; display: grid; gap: 4px; padding-bottom: 16px; border-bottom: 1.5px dashed var(--line); }
+.receipt .rh h3 { font: 800 34px/1 var(--display); letter-spacing: -.02em; }
+.receipt .rh small { color: var(--muted); font-size: 12px; }
+.receipt ul { list-style: none; padding: 16px 0; margin: 0; display: grid; gap: 8px; border-bottom: 1.5px dashed var(--line); }
+.receipt li { display: grid; grid-template-columns: 18px minmax(0, 1fr); }
+.receipt li::before { content: "+"; color: var(--muted); }
+.receipt li.inc::before { content: "="; }
+.receipt li.inc { color: var(--muted); }
+.receipt .tot { padding-top: 16px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+.receipt .row { display: flex; align-items: baseline; gap: 8px; }
+.receipt .row .dots { flex: 1; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.receipt .row s { color: var(--muted); }
+.receipt .big { font: 800 44px/1 var(--display); letter-spacing: -.02em; }
+.receipt .big small { font: 500 14px/1 var(--mono); color: var(--muted); margin-right: 6px; }
+.receipt .stamp { position: absolute; right: 16px; top: 18px; transform: rotate(9deg); font-size: 13px; background: var(--receipt); }
+.receipt .fit { margin-top: 16px; font-size: 12.5px; color: var(--muted); }
+.receipt.pick { outline: 2px solid var(--ink); outline-offset: -2px; }
+.receipt .pickline { text-align: center; font-size: 12px; margin-bottom: 14px; }
+.terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 26px; }
+.terms b { display: block; font: 800 26px/1.1 var(--display); letter-spacing: -.01em; margin-bottom: 8px; }
+.terms p { color: var(--muted); font-size: 16px; }
+@media (max-width: 760px) { .terms { grid-template-columns: 1fr; } }
+
+/* contact */
+.contact { background: var(--ink); color: var(--paper); }
+.contact .label { color: var(--muted); }
+.contact h2 { font-weight: 800; font-size: clamp(48px, 9vw, 128px); line-height: .88; letter-spacing: -.045em; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 56px; margin-top: 48px; align-items: start; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-grid > div p { font-size: 18px; max-width: 30em; opacity: .85; }
+.contact .mail { display: inline-block; margin-top: 22px; font: 600 clamp(22px, 3vw, 32px)/1.1 var(--display); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 6px; text-decoration-thickness: 3px; }
+form { display: grid; gap: 14px; }
+.f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 520px) { .f2 { grid-template-columns: 1fr; } }
+form label { display: grid; gap: 6px; font: 600 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; opacity: .9; min-width: 0; }
+form input, form textarea { font: 400 17px/1.4 var(--body); color: var(--paper); background: transparent; border: 0; border-bottom: 1.5px solid color-mix(in srgb, var(--paper) 35%, transparent); padding: 10px 0; width: 100%; border-radius: 0; }
+form input::placeholder, form textarea::placeholder { color: color-mix(in srgb, var(--paper) 40%, transparent); }
+form input:focus, form textarea:focus { outline: none; border-bottom-color: var(--marker); }
+form textarea { min-height: 96px; resize: vertical; }
+form .btn { background: var(--marker); color: #121614; justify-self: start; margin-top: 10px; }
+.form-done { font-size: 15px; border-left: 3px solid var(--marker); padding-left: 12px; }
+
+footer { background: var(--ink); color: var(--paper); padding-block: 0 36px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); padding-top: 22px; opacity: .75; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="High Street Apps, home">
+      <span class="brand-mark" aria-hidden="true">H</span>
+      <span><b>High Street Apps</b><span class="label">By Ethan · UK</span></span>
+    </a>
+    <nav aria-label="Main">
+      <a class="hide-s" href="#work">Work</a>
+      <a class="hide-s" href="#process">Process</a>
+      <a class="hide-s" href="#pricing">Pricing</a>
+      <a class="link" href="#contact">Free concept</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top:28px">
+    <div class="wrap">
+      <h1><span class="thin">Your website,</span><br>as an <span class="app">app.<svg viewBox="0 0 300 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C 70 6, 150 26, 296 10"/></svg></span></h1>
+
+      <div class="hero-grid">
+        <div>
+          <p class="lede">I'm Ethan, and I design and build iPhone apps for UK businesses, using what you already have online: your bookings, memberships, loyalty scheme, menu and offers. Before you spend a penny, I'll send you a free concept of your app.</p>
+          <div class="ctas">
+            <a class="btn" href="#contact">Get your free concept <span class="arr">→</span></a>
+            <a class="link" href="#pricing">See prices</a>
+          </div>
+          <div class="facts">
+            <span>Gaffer is live on the App Store</span>
+            <span>Native Swift for iPhone and Apple Watch</span>
+            <span>Fixed quotes</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="homescreen" aria-label="Preview of your app icon on a phone home screen">
+            <div class="status"><span>9:41</span><span>●●● ▮</span></div>
+            <div class="icons">
+              <div class="ic"><i></i><span>Photos</span></div>
+              <div class="ic"><i></i><span>Maps</span></div>
+              <div class="ic me" id="me"><i id="me-i">Y</i><span id="me-n">Your Business</span></div>
+              <div class="ic"><i></i><span>Weather</span></div>
+              <div class="ic"><i></i><span>Notes</span></div>
+              <div class="ic"><i></i><span>Wallet</span></div>
+              <div class="ic"><i></i><span>Music</span></div>
+              <div class="ic"><i></i><span>Clock</span></div>
+            </div>
+            <div class="dock"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="try">
+            <label for="site-try"><span class="label">Try it: type your website</span><span class="label" aria-hidden="true">↑</span></label>
+            <input id="site-try" value="yourbusiness.co.uk" autocomplete="off" spellcheck="false" inputmode="url">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pitch" id="work">
+    <div class="wrap">
+      <div class="label">Recent work · Live on the App Store</div>
+      <div class="case-head" style="margin-top:22px">
+        <h2>Gaffer</h2>
+        <a class="sticker" href="https://apps.apple.com/gb/app/gaffer-small-sided-football/id6821197842" target="_blank" rel="noopener"><span class="label" style="color:#121614">Download</span><b>On the App Store ↗</b></a>
+      </div>
+      <div class="case-copy">
+        <p><b>The brief</b>Running a weekly five-a-side team means endless group chats about who's playing, who's in goal and who's been subbed too often.</p>
+        <p><b>What I built</b>One app for the whole team: availability in a tap, fair subs on a timer, live scoring from iPhone or Apple Watch, and highlight clips with TV-style score graphics.</p>
+        <p><b>Where it is now</b>Live on the App Store, used every week by a real team, with player stats and a Goal of the Week vote after every game.</p>
+      </div>
+      <div class="phones">
+        <figure><figcaption>Who's playing Thursday</figcaption><img src="img/gaffer-6.webp" width="420" height="889" alt="Gaffer's game screen: next game details with I'm in, In goal and I'm out buttons above a pitch showing who's playing." loading="lazy"></figure>
+        <figure><figcaption>Fair subs, live score</figcaption><img src="img/gaffer-9.webp" width="420" height="889" alt="Gaffer's live match screen: score 1-0, a countdown to the next substitution and the players coming off and on." loading="lazy"></figure>
+        <figure><figcaption>Highlights after the game</figcaption><img src="img/gaffer-20.webp" width="420" height="889" alt="Gaffer's highlights screen listing match results with a button to watch the whole match highlights." loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap process-grid">
+      <div class="sh">
+        <div class="label">How it works</div>
+        <div>
+          <h2>Four updates, from first look to launch.</h2>
+          <p>No calls, no jargon. You get a clear update at each stage, and you can stop after the free concept with nothing to pay.</p>
+        </div>
+      </div>
+      <div class="lock" aria-label="The four steps, shown as phone notifications">
+        <div class="date">Your app, step by step</div>
+        <div class="time">9:41</div>
+        <div class="notes">
+          <div class="note-card"><span class="ni">H</span><div><div class="meta"><span>Step 1</span><span>Free</span></div><b>Your app concept is ready</b><p>A short video of your app, made with your own content and branding.</p></div></div>
+          <div class="note-card"><span class="ni">H</span><div><div class="meta"><span>Step 2</span><span>Fixed price</span></div><b>Here's your quote</b><p>We agree the features, then I send one fixed price. No hourly billing.</p></div></div>
+          <div class="note-card"><span class="ni">H</span><div><div class="meta"><span>Step 3</span><span>50% to start</span></div><b>Try the latest build</b><p>You see progress as I build and test the app on your own phone before launch.</p></div></div>
+          <div class="note-card"><span class="ni">H</span><div><div class="meta"><span>Step 4</span><span>50% at launch</span></div><b>You're live on the App Store</b><p>Published under your business name, then kept up to date for you.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="padding-top:40px">
+    <div class="wrap">
+      <div class="sh">
+        <div class="label">Pricing</div>
+        <div>
+          <h2>Fixed quotes. <span class="hl">Early‑client prices.</span></h2>
+          <div class="sale-line"><span class="stamp">Up to 50% off</span><p style="margin:0;color:var(--muted);max-width:36em">While I take on my first few business clients. In return, I ask for a short testimonial and permission to show your app in my portfolio.</p></div>
+        </div>
+      </div>
+
+      <div class="receipts">
+        <article class="receipt">
+          <span class="stamp">−25%</span>
+          <div class="rh"><small>Quote · Tier 1</small><h3>Starter</h3><small>Your website content, as a polished iPhone app</small></div>
+          <ul>
+            <li>Menus, services, prices and opening hours</li>
+            <li>Bookings and links into your current systems</li>
+            <li>Maps, directions and tap-to-call</li>
+            <li>Published on the App Store</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Was</span><span class="dots"></span><s>£3,000</s></div>
+            <div class="big"><small>from</small>£2,250</div>
+          </div>
+          <p class="fit">Good for cafés, shops, venues and local services.</p>
+        </article>
+        <article class="receipt pick">
+          <span class="stamp">−35%</span>
+          <div class="rh"><small>Quote · Tier 2 · Most chosen</small><h3>Standard</h3><small>For businesses with regulars, members or subscribers</small></div>
+          <ul>
+            <li class="inc">Everything in Starter</li>
+            <li>Customer accounts and logins</li>
+            <li>Loyalty cards, memberships or passes</li>
+            <li>Push notifications for offers and reminders</li>
+            <li>Android version or web app</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Was</span><span class="dots"></span><s>£6,000</s></div>
+            <div class="big"><small>from</small>£3,900</div>
+          </div>
+          <p class="fit">Good for gyms, climbing walls, multi-site cafés and veg box schemes.</p>
+        </article>
+        <article class="receipt">
+          <span class="stamp">−50%</span>
+          <div class="rh"><small>Quote · Tier 3</small><h3>Custom</h3><small>When the app is part of how you run the business</small></div>
+          <ul>
+            <li class="inc">Everything in Standard</li>
+            <li>In-app payments and ordering</li>
+            <li>Apple Watch and other devices</li>
+            <li>Integrations with your booking or stock systems</li>
+          </ul>
+          <div class="tot">
+            <div class="row"><span>Was</span><span class="dots"></span><s>£12,000</s></div>
+            <div class="big"><small>from</small>£6,000</div>
+          </div>
+          <p class="fit">Good for ordering, subscriptions and bespoke tools.</p>
+        </article>
+      </div>
+
+      <div class="terms">
+        <div><b>From £100 a month</b><p>Upkeep covers hosting, security and bug fixes, updates for each new iOS release, App Store management and small changes.</p></div>
+        <div><b>50% now, 50% at launch</b><p>You pay the second half when your app is live. "From" prices are a starting point, and your quote is fixed before work starts.</p></div>
+        <div><b>Your name on the App Store</b><p>Apple charges a separate £79 a year developer fee, so the app is listed under your own business.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="label">Free concept</div>
+      <h2 style="margin-top:18px">Send me your website.</h2>
+      <div class="contact-grid">
+        <div>
+          <p>Tell me what you'd like customers to be able to do. I'll reply within one working day, then send you a free concept of your app with a fixed quote.</p>
+          <a class="mail" href="mailto:ethan@reth.com">ethan@reth.com</a>
+        </div>
+        <form id="enquiry" novalidate>
+          <div class="f2">
+            <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+            <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <div class="f2">
+            <label for="f-biz">Business<input id="f-biz" name="business" autocomplete="organization"></label>
+            <label for="f-site">Website<input id="f-site" name="website" placeholder="yourbusiness.co.uk"></label>
+          </div>
+          <label for="f-msg">What should the app do?<textarea id="f-msg" name="message" placeholder="For example: let members book classes and show a loyalty card at the till."></textarea></label>
+          <button class="btn" type="submit">Send enquiry <span class="arr">→</span></button>
+          <p class="form-done" id="f-done" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 High Street Apps · iPhone apps for UK businesses, made by Ethan</span>
+    <span>apps.reth.com</span>
+  </div>
+</footer>
+
+<script>
+// Hero toy: turn a typed website into an app icon on a home screen.
+(function () {
+  var input = document.getElementById('site-try'), icon = document.getElementById('me-i'), name = document.getElementById('me-n'), me = document.getElementById('me');
+  var colours = ['#f5cc3d', '#ff8a5b', '#7cc6fe', '#b5e48c', '#ffb3c6', '#ffffff', '#c8b6ff'];
+  function render() {
+    var raw = input.value.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '').split(/[\/?#]/)[0];
+    var base = raw.split('.')[0] || 'yourbusiness';
+    var words = base.replace(/[-_]+/g, ' ').trim();
+    if (base === 'yourbusiness') words = 'your business';
+    var pretty = words.replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+    name.textContent = pretty || 'Your Business';
+    icon.textContent = (pretty.charAt(0) || 'Y');
+    var h = 0; for (var i = 0; i < base.length; i++) h = (h * 31 + base.charCodeAt(i)) >>> 0;
+    me.style.setProperty('--yourcolor', colours[h % colours.length]);
+  }
+  input.addEventListener('input', render);
+  render();
+})();
+
+// Until a form backend is connected, the form opens an email to Ethan with the enquiry filled in.
+document.getElementById('enquiry').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, done = document.getElementById('f-done');
+  var name = f.name.value.trim(), email = f.email.value.trim();
+  done.hidden = false;
+  if (!name || !/^\S+@\S+\.\S+$/.test(email)) { done.textContent = 'Please add your name and a valid email address so I can reply.'; return; }
+  var body = 'Name: ' + name + '\nEmail: ' + email + '\nBusiness: ' + f.business.value + '\nWebsite: ' + f.website.value + '\n\n' + f.message.value;
+  done.textContent = 'Your email app should open with this enquiry ready to send. If it doesn\'t, email ethan@reth.com directly.';
+  location.href = 'mailto:ethan@reth.com?subject=' + encodeURIComponent('App concept request: ' + (f.business.value || name)) + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>

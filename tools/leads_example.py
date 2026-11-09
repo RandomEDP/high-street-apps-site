@@ -1,3 +1,4 @@
+# dated_site=True adds the 2-line website offer to that lead's email (only for leads whose site looks dated)
 L = [
  dict(slug='topping-books', name='Topping & Company Booksellers', to='subscriptions@toppingbooks.co.uk', where='Bath, Edinburgh, Ely, St Andrews',
   site='toppingbooks.co.uk', town='Bath', fit='Four shops, busy author events programme, £22.99/month Signed Fiction Club, gift subscriptions, vouchers',
@@ -14,7 +15,7 @@ L = [
   hook="I was reading about Homegrown Rewards, with the points, the green-label member prices and early access to events, and put together a short concept of how it could work as a Brocksbushes app.",
   why=['A rewards card on the phone is never left at home, and points can only be earned when the card is shown at the till.','Member prices and "PYO opens Saturday" alerts reach people at the right moment.','Play Barn slots, parties and the Christmas Fayre are all bookable in one place.']),
  dict(slug='kemptown-bookshop', name='Kemptown Bookshop', to='orders@kemptownbookshop.co.uk', where='Brighton',
-  site='kemptownbookshop.co.uk', town='Brighton', fit='Monthly fiction subscription box (3/6/12 months, paperback/hardback), hand-delivered locally, sign-up by email',
+  site='kemptownbookshop.co.uk', town='Brighton', dated_site=True, fit='Monthly fiction subscription box (3/6/12 months, paperback/hardback), hand-delivered locally, sign-up by email',
   headline="Your subscription box, in every reader's pocket.",
   blurb="A quick concept of how the Kemptown Bookshop subscription box, orders and gifts could work as one iPhone app.",
   features=['See what\'s in the next box and when it arrives','Subscribe or gift a box in one tap','Reserve and order books to collect','Delivery alerts for hand-delivered boxes'],

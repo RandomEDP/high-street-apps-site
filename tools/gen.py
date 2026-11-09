@@ -14,6 +14,11 @@ for d in L:
     url=f'https://apps.reth.com/mockups/{s}/'
     n=d['name']; greet=f"Hi {n.replace('The ','',1) if n.startswith('The ') else n} team,"
     why_t='\n'.join('- '+w for w in d['why'])
+    # Website line: only for leads flagged dated_site=True (approved by Ethan 2026-11-09). Never criticise their site.
+    WEB=("I also design and build websites, so if you'd like your site refreshed to match the app, I can do both together as one project. "
+         "That way bookings, accounts and offers work the same on the web as they do on the phone.") if d.get('dated_site') else ''
+    web_t=f"\n\n{WEB}" if WEB else ''
+    web_h=f"\n<p>{html.escape(WEB)}</p>" if WEB else ''
     body=f"""{greet}
 
 I'm Ethan from High Street Apps. I build iPhone apps for independent UK businesses. {d['hook']}
@@ -23,7 +28,7 @@ You can watch the 20-second concept here: {url}
 Why an app could work for {n}:
 {why_t}
 
-I built and run Gaffer, a football team app that's live on the App Store for iPhone and Apple Watch ({GA}). It handles availability, fair subs, live scoring and highlight clips, and a real team uses it every week. I'd build yours the same way: a fast, native app that works with the systems you already have.
+I built and run Gaffer, a football team app that's live on the App Store for iPhone and Apple Watch ({GA}). It handles availability, fair subs, live scoring and highlight clips, and a real team uses it every week. I'd build yours the same way: a fast, native app that works with the systems you already have.{web_t}
 
 I'd love to hear what you think of it. If you'd like to take it further, just reply and I'll send over the next steps.
 
@@ -38,7 +43,7 @@ If this isn't relevant, just reply "no thanks" and I won't contact you again."""
 <p>I'm Ethan from High Street Apps. I build iPhone apps for independent UK businesses. {e(d['hook'])}</p>
 <p><b><a href="{url}">Watch the 20-second concept for {e(n)}</a></b></p>
 <p><b>Why an app could work for {e(n)}:</b></p><ul style="padding-left:18px">{li}</ul>
-<p>I built and run <b>Gaffer</b>, a football team app that's <a href="{GA}">live on the App Store</a> for iPhone and Apple Watch. It handles availability, fair subs, live scoring and highlight clips, and a real team uses it every week. I'd build yours the same way: a fast, native app that works with the systems you already have.</p>
+<p>I built and run <b>Gaffer</b>, a football team app that's <a href="{GA}">live on the App Store</a> for iPhone and Apple Watch. It handles availability, fair subs, live scoring and highlight clips, and a real team uses it every week. I'd build yours the same way: a fast, native app that works with the systems you already have.</p>{web_h}
 <p>I'd love to hear what you think of it. If you'd like to take it further, just reply and I'll send over the next steps.</p>
 <p>Best,<br>Ethan<br>High Street Apps · <a href="https://apps.reth.com">apps.reth.com</a></p>
 <p style="font-size:12px;color:#888">If this isn't relevant, just reply "no thanks" and I won't contact you again.</p>

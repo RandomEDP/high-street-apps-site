@@ -1,2 +1,9 @@
 User-agent: *
-Disallow: /mockups/
+Allow: /
+
+# Prospect mockup pages and the pricing PDF are kept out of search with
+# noindex headers (see _headers). They are deliberately NOT disallowed here:
+# a robots.txt block stops Google from seeing the noindex, so a shared link
+# could still be listed as a bare URL.
+
+Sitemap: https://apps.reth.com/sitemap.xml

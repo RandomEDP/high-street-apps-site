@@ -1,2 +1,5 @@
 /mockups/*
   X-Robots-Tag: noindex, nofollow
+
+/pricing.pdf
+  X-Robots-Tag: noindex, nofollow

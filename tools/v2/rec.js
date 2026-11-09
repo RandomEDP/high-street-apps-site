@@ -1,6 +1,6 @@
-// v2 recorder: APPS=./apps_sample.js node rec.js [slug...]  ->  out/<slug>/{raw.webm,poster.png}
+// v2 recorder: APPS=./apps_example.js node rec.js [slug...]  ->  out/<slug>/{raw.webm,poster.png}
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
-const apps=require(path.resolve(process.env.APPS||'./apps_sample.js'));
+const apps=require(path.resolve(process.env.APPS||'./apps_example.js'));
 (async()=>{
  const b=await chromium.launch();
  for(const key of (process.argv[2]?process.argv.slice(2):Object.keys(apps))){

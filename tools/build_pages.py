@@ -185,7 +185,7 @@ SECTORS = [
             ("Updates when it matters", "Weather closures, new arrivals and seasonal events sent to the visitors who'll care."),
         ],
         tier="standard",
-        tier_why="Annual passes, accounts and push reminders are Standard. A visitor guide with map, times and ticket links is Starter. Buying tickets in the app or linking deeply with your ticketing system is Custom.",
+        tier_why="Annual passes, accounts and push reminders are Standard. A visitor guide with map, times and ticket links is Starter. Buying tickets in the app or linking deeply with your ticketing system is Custom. With only a few hundred pass holders, a digital pass in Apple Wallet or Google Wallet may be all you need: from £495 to set up, then £15 a month.",
         faqs=[
             ("Does the map need GPS on every path?", "No. The map is a drawn plan of your site; the phone's location simply shows where the visitor is on it."),
             ("Will it work with my ticketing system?", "Ticket links work with almost anything. A deeper link, so passes and tickets show up in the app automatically, depends on your provider, and I check that in the free concept."),
@@ -425,7 +425,7 @@ def hub_page():
 
 
 COST_FAQS = [
-    ("Is there a cheaper way to get an app?", "DIY app builders cost from around £30 to £100 a month, but you build it yourself from a template and it looks like every other app made with the same tool. They suit some businesses. If you want an app that feels like yours and someone to look after it, a fixed-price build is usually better value over a few years."),
+    ("Is there a cheaper way to get an app?", "DIY app builders cost from around £30 to £100 a month, but you build it yourself from a template and it looks like every other app made with the same tool. They suit some businesses. If all you need is a membership card or season ticket on the phone, a digital pass in Apple Wallet or Google Wallet costs from £495 to set up and £15 a month. If you want an app that feels like yours and someone to look after it, a fixed-price build is usually better value over a few years."),
     ("Why are agency quotes so much higher?", "Agencies carry account managers, project managers and office costs, and often quote by the day. I design and build every app myself and quote one fixed price, which is where most of the difference comes from."),
     ("Do I own the app?", "It's published on the App Store under your own business name, using your own Apple developer account."),
     ("Do I need an Android app too?", "Roughly half of UK smartphones are iPhones, and iPhone owners tend to use apps the most, so iPhone is a sensible place to start. Standard and Custom include an Android version or a web app so nobody is left out."),
@@ -464,6 +464,10 @@ def cost_page():
         <tr><td>Everything above, plus ordering and payments in the app, Apple Watch, or links into your booking or stock system</td><td>Order ahead, subscriptions, bespoke tools</td><td>£6,000</td></tr>
       </tbody>
     </table></div>
+    <div class="prose" style="margin-top:28px">
+      <h3>Not ready for a full app?</h3>
+      <p>A <b>digital pass</b> is a membership card, season ticket or loyalty card that your customers add to Apple Wallet or Google Wallet straight from an email, with nothing to download. It costs from <b>£495</b> to set up, including your design and sending passes to your current members, then <b>£15 a month</b> to keep it running and issue new ones. It suits clubs, gardens and attractions with a few hundred members.</p>
+    </div>
   </div>
 </section>
 <section>

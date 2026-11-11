@@ -219,6 +219,13 @@ section { padding-block: 100px; }
 .receipt .fit { margin-top: 16px; font-size: 12.5px; color: var(--muted); }
 .receipt.pick { outline: 2px solid var(--ink); outline-offset: -2px; }
 .receipt .pickline { text-align: center; font-size: 12px; margin-bottom: 14px; }
+.lite { display: grid; grid-template-columns: 220px minmax(0, 1fr) auto; gap: 24px 40px; align-items: center; margin-top: 56px; padding: 26px 28px; border: 2px dashed var(--ink); border-radius: 10px; }
+.lite h3 { font: 800 30px/1 var(--display); letter-spacing: -.02em; margin-top: 8px; }
+.lite p { margin: 0; color: var(--muted); font-size: 16px; }
+.lite .big { font: 800 44px/1 var(--display); letter-spacing: -.02em; white-space: nowrap; }
+.lite .big small { font: 500 14px/1 var(--mono); color: var(--muted); margin-right: 6px; }
+.lite .per { font: 500 14px/1.3 var(--mono); color: var(--muted); margin-top: 6px; }
+@media (max-width: 960px) { .lite { grid-template-columns: 1fr; padding: 22px 20px; } }
 .web-head { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; margin-top: 96px; margin-bottom: 36px; align-items: end; }
 .web-head h3 { font-weight: 800; font-size: clamp(30px, 4.2vw, 52px); line-height: 1; letter-spacing: -.03em; }
 .web-head p { margin: 12px 0 0; color: var(--muted); max-width: 38em; }
@@ -413,6 +420,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           </div>
           <p class="fit">Good for ordering, subscriptions and bespoke tools.</p>
         </article>
+      </div>
+
+      <div class="lite" id="digital-pass">
+        <div><div class="label">Smaller first step</div><h3>Digital pass</h3></div>
+        <p>Not ready for a full app? A membership card, season ticket or loyalty card that your customers add to Apple Wallet or Google Wallet straight from an email, with nothing to download. Includes your design and sending passes to your current members. Good for clubs, gardens and attractions with a few hundred members.</p>
+        <div class="lp"><div class="big"><small>from</small>£495</div><div class="per">then £15 a month</div></div>
       </div>
 
       <div class="web-head" id="websites">
